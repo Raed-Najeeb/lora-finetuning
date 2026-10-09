@@ -1,0 +1,9 @@
+{
+  "n": 300,
+  "accuracy": 0.8066666666666666,
+  "invalid_replies": 9,
+  "name": "ft_2k",
+  "batch_size": 8,
+  "avg_prompt_tokens": 66.1,
+  "seconds_per_example": 0.249
+}
