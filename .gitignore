@@ -218,3 +218,11 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Fine-tuning artifacts
+adapters/
+checkpoints/
+outputs/
+*.safetensors
+*.bin
+*.gguf
