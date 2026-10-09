@@ -1,6 +1,8 @@
 import sys
 from pathlib import Path
 
+import pytest
+
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src" / "finetune"))
 
 from scoring import canonicalize, normalize, summarize
@@ -15,6 +17,17 @@ def test_canonicalize_restores_dataset_casing():
     assert canonicalize("Refund_not_showing_up", labels) == "Refund_not_showing_up"
     assert canonicalize(" `card_arrival`. ", labels) == "card_arrival"
     assert canonicalize("made_up_label", labels) == "made_up_label"
+
+
+def test_canonicalize_handles_label_with_question_mark():
+    labels = ["reverted_card_payment?", "card_arrival"]
+    assert canonicalize("reverted_card_payment", labels) == "reverted_card_payment?"
+    assert canonicalize("reverted_card_payment?", labels) == "reverted_card_payment?"
+
+
+def test_canonicalize_rejects_ambiguous_labels():
+    with pytest.raises(ValueError):
+        canonicalize("x", ["same?", "same"])
 
 
 def test_summarize_counts_accuracy_and_invalid():

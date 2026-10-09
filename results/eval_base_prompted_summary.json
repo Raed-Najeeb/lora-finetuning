@@ -1,7 +1,7 @@
 {
   "n": 300,
-  "accuracy": 0.5133333333333333,
-  "invalid_replies": 8,
+  "accuracy": 0.5166666666666667,
+  "invalid_replies": 7,
   "name": "base_prompted",
   "batch_size": 8,
   "avg_prompt_tokens": 461.1,

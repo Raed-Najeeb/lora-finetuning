@@ -269,7 +269,7 @@
 {"text": "When will my card come? I need it as soon as possible!", "label": "card_delivery_estimate", "reply": "card_arrival", "pred": "card_arrival"}
 {"text": "Why is my refund not visible on my statement?", "label": "Refund_not_showing_up", "reply": "Refund_not_showing_up", "pred": "Refund_not_showing_up"}
 {"text": "Why do i have an extra fee on my statement?", "label": "extra_charge_on_statement", "reply": "extra_charge_on_statement", "pred": "extra_charge_on_statement"}
-{"text": "What happens when a payment is reverted?", "label": "reverted_card_payment?", "reply": "reverted_card_payment", "pred": "reverted_card_payment"}
+{"text": "What happens when a payment is reverted?", "label": "reverted_card_payment?", "reply": "reverted_card_payment", "pred": "reverted_card_payment?"}
 {"text": "how many transactions can go on a disposable card?", "label": "disposable_card_limits", "reply": "disposable_card_limits", "pred": "disposable_card_limits"}
 {"text": "Is there a fee for physical cards?", "label": "order_physical_card", "reply": "get_physical_card", "pred": "get_physical_card"}
 {"text": "I'm having problems with ID verification", "label": "unable_to_verify_identity", "reply": "unable_to_verify_identity", "pred": "unable_to_verify_identity"}
