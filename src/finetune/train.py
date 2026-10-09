@@ -104,6 +104,10 @@ def main():
     model = get_peft_model(model, lora)
     model.print_trainable_parameters()
 
+    steps_per_epoch = -(-len(train_ds) // (args.batch_size * args.grad_accum))
+    total_steps = args.max_steps if args.max_steps > 0 else int(steps_per_epoch * args.epochs)
+    warmup_steps = max(1, int(0.03 * total_steps))
+
     training_args = TrainingArguments(
         output_dir="checkpoints",
         per_device_train_batch_size=args.batch_size,
@@ -113,7 +117,7 @@ def main():
         num_train_epochs=args.epochs,
         max_steps=args.max_steps,
         lr_scheduler_type="cosine",
-        warmup_ratio=0.03,
+        warmup_steps = warmup_steps,
         logging_steps=10,
         eval_strategy="steps",
         eval_steps=args.eval_steps,
