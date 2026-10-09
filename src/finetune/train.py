@@ -109,7 +109,7 @@ def main():
     warmup_steps = max(1, int(0.03 * total_steps))
 
     training_args = TrainingArguments(
-        output_dir="checkpoints",
+        output_dir=args.output_dir,
         per_device_train_batch_size=args.batch_size,
         per_device_eval_batch_size=args.batch_size,
         gradient_accumulation_steps=args.grad_accum,
@@ -117,11 +117,13 @@ def main():
         num_train_epochs=args.epochs,
         max_steps=args.max_steps,
         lr_scheduler_type="cosine",
-        warmup_steps = warmup_steps,
+        warmup_steps=warmup_steps,
         logging_steps=10,
         eval_strategy="steps",
         eval_steps=args.eval_steps,
-        save_strategy="no",
+        save_strategy="steps",
+        save_steps=200,
+        save_total_limit=2,
         fp16=True,
         optim="paged_adamw_8bit",
         gradient_checkpointing=True,
